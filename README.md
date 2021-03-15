@@ -3,6 +3,8 @@ A simple python web application to scrape and output data from StackOverflow usi
 
 ## Setup
 To run the application, I installed Python3, and then I ran the following:\
+```python3 -m venv venv``` to create my virtual environment then I activated it with ```source venv/bin/activate```\
+Next run
 ```pip install flask``` to install 
 Flask 1.1.2,\
 ```pip install flask-wtf``` to install 
