@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3>Request Users</h3>
+    <p>Submit this form to view how many questions your desired set of users have asked since their account creation.</p>
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.num_users.label }}<br>
+            {{ form.num_users }} <br>
+            {% for error in form.num_users.errors %}
+            <span style="color: red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    
+{% endblock %}

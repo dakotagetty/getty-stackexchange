@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Users</h2>
+    <div>
+        <ul>
+            {% for user in users['items'] %}
+            <li>
+                <a href="{{ user['link'] }}">{{ user['display_name'] }}</a> has asked  
+                {{ user_questions[user['user_id']] }} questions.
+            </li>
+            {% endfor %}
+        </ul>
+
+    <h2>Questions:</h2>
+    <div>
+    <ul>
+    {% for question in questions['items'] %}
+
+        <li>
+            <a href="{{ question['link'] }}">Question</a>: "{{ question['title'] }}" asked by {{question['owner']['display_name']}} has
+            {% if question['is_answered'] %}
+            <b>been answered</b>
+            {% else %}
+            <b>not been answered</b>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    </div>
+    <div>
+        <p>
+            <a href="{{ url_for('index') }}">Return</a> to User Request Form
+        </p>
+    </div>
+
+{% endblock %}
