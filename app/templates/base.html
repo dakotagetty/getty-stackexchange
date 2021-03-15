@@ -1,0 +1,30 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} -- Stack Exchange</title>
+        {% else %}
+        <title>Welcome to StackExchange</title>
+        {% endif %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to the StackExchange API Search Tool</h1>
+            <p>
+                This web application is designed to query <a href="www.stackoverflow.com">StackOverflow</a> for information
+                regarding questions asked by a requested number of users that were the first to create accounts last month.
+            </p>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
